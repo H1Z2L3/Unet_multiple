@@ -26,24 +26,24 @@ def main():
 def goTrain():
   # input image dimensions
   params = {'batch_size':1,
-            #   'dim': (480, 256),
-            'dim': (488, 248),
+              'dim': (480, 256),
+           #  'dim': (488, 248),
           'n_channels':1,
           'shuffle': True}
   ####data size#####
   ################
-  #  seismPathT = "./data256-480/train/seis/"
-  #   faultPathT = "./data256-480/train/fault/"
-  #   seismPathV = "./data256-480/validation/seis/"
-  #  faultPathV = "./data256-480/validation/fault/"
-    seismPathT = "./data248-488/train/seis20/"
-    faultPathT = "./data248-488/train/fault20/"
-    seismPathV = "./data248-488/validation/seis/"
-    faultPathV = "./data248-488/validation/fault/"
+  seismPathT = "./data256-480/train/seis/"
+  faultPathT = "./data256-480/train/fault/"
+  seismPathV = "./data256-480/validation/seis/"
+  faultPathV = "./data256-480/validation/fault/"
+  #    seismPathT = "./data248-488/train/seis20/"
+  #     faultPathT = "./data248-488/train/fault20/"
+  #     seismPathV = "./data248-488/validation/seis/"
+  #   faultPathV = "./data248-488/validation/fault/"
   #######train/validation--input/fault#########
 
   ########number of train/validation data########
-  train_ID = range(20)
+  train_ID = range(16)
   valid_ID = range(10)
  
   train_generator = DataGenerator(dpath=seismPathT,fpath=faultPathT,
@@ -60,7 +60,7 @@ def goTrain():
   #               metrics=['accuracy'])
   # model.compile(optimizer=Adam(lr=1e-4), loss='mean_squared_logarithmic_error',
   #               metrics=['accuracy'])
-  #########################回归问题不用准确率来度量模型好坏###################################################################
+  ############################################################################################
   # model.compile(optimizer=Adam(lr=1e-4), loss='mean_absolute_error')
   #Specify the optimizer, loss function, and accuracy metric when configuring the training method.#
   model.summary()
@@ -69,8 +69,8 @@ def goTrain():
   # checkpoint
   # filepath="check7.0398（200）/fseg-{epoch:02d}.hdf5"
 
-  # filepath = "check56-696/fseg-{epoch:02d}.hdf5"
-  filepath = "check248-488/fseg-{epoch:02d}.hdf5"
+  filepath = "check256-480/fseg-{epoch:02d}.hdf5"
+  # filepath = "check248-488/fseg-{epoch:02d}.hdf5"
   ###########
   checkpoint = ModelCheckpoint(filepath, monitor='val_loss',
         verbose=1, save_best_only=True, mode='auto',period=30)
@@ -91,8 +91,8 @@ def goTrain():
   # train_generator.tofile(filepath3 + str(data_IDs_temp[0]) + '.dat')
   # Fit the model
   history=model.fit_generator(generator=train_generator,
-    validation_data=valid_generator,epochs=200,callbacks=callbacks_list,verbose=1)
-  model.save('check248-488/fseg.hdf5')#################################################################################
+    validation_data=valid_generator,epochs=100,callbacks=callbacks_list,verbose=1)
+  model.save('check256-480/fseg.hdf5')#################################################################################
   showHistory(history)
 
 
