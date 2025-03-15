@@ -27,7 +27,7 @@ pngDir = './png/'
 
 
 model = load_model(
-                  'check256-480/fseg-' + '105.hdf5'
+                  'check256-480/fseg-' + '90.hdf5'
                   )
 ####trained model
 def main():
