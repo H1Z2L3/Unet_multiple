@@ -15,7 +15,7 @@ applymultiple.py
 This code applies the trained model to new data. It uses the learned weights from the training process to perform surface-related multiple estimation on the test data.
 
 Testing Instructions
-To test and run the entire pipeline, follow the steps below:
+To test and run the entire code, follow the steps below:
 
 Train the Model
 
