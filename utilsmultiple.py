@@ -10,7 +10,7 @@ class DataGenerator(keras.utils.Sequence):
              n_channels=1, shuffle=True):
   # def __init__(self, dpath, fpath, data_IDs, batch_size=1, dim=(64, 64),
   #                n_channels=1, shuffle=True):
-  #shuffle--是否打乱数据
+  #shuffle--Whether to shuffle the data
     'Initialization'
     self.dim   = dim
     self.dpath = dpath
@@ -39,7 +39,7 @@ class DataGenerator(keras.utils.Sequence):
 
     return X, Y
 
-  def gaussian_noise(self, x):  # 高斯模糊
+  def gaussian_noise(self, x):  # Gaussian noise
 
     mu = 0.1
     sigma = 0.05
@@ -66,7 +66,7 @@ class DataGenerator(keras.utils.Sequence):
     gx = np.reshape(gx,self.dim)
     fx = np.reshape(fx,self.dim)
     ################################
-    def gaussian_noise1(x):  # 高斯模糊
+    def gaussian_noise1(x): 
 
       mu = 0
       sigma = 0.00002
@@ -76,7 +76,7 @@ class DataGenerator(keras.utils.Sequence):
 
       return x
 
-    def gaussian_noise2(x):  # 高斯模糊
+    def gaussian_noise2(x): 
 
       mu = 0
       sigma = 0.00001
@@ -86,8 +86,7 @@ class DataGenerator(keras.utils.Sequence):
 
       return x
 
-    def gaussian_noise3(x):  # 高斯模糊
-
+    def gaussian_noise3(x):  
       mu = 0
       sigma = 0.00005
       noise = np.random.normal(mu, sigma, x.shape).astype(dtype=np.float32)
@@ -96,7 +95,7 @@ class DataGenerator(keras.utils.Sequence):
 
       return x
 
-    def gaussian_noise(x,mu,sigma):  # 高斯模糊
+    def gaussian_noise(x,mu,sigma):  
       noise = np.random.normal(mu, sigma, x.shape).astype(dtype=np.float32)
       x = x + noise
       # x = cv2.GaussianBlur(x, (9, 9), 5)
@@ -121,7 +120,7 @@ class DataGenerator(keras.utils.Sequence):
 
     #gx = gx*255
     ###########################################################################
-    ############特征标准化###################
+    ###############################
     # xm = np.mean(gx)
     # xs = np.std(gx)
     # gx = gx-xm
@@ -145,7 +144,7 @@ class DataGenerator(keras.utils.Sequence):
     # Ys1 = np.min(abs(Ys))
     # Ys = Ys - Ys1
     fx = fx / Ys
-    ##########标准差归一化############################
+    ######################################
     # xm = np.mean(gx)
     # xs = np.std(gx)
     # gx = gx - xm
@@ -156,13 +155,13 @@ class DataGenerator(keras.utils.Sequence):
     # fx = fx - xm1
     # fx = fx / xs1
     #####################################
-    # ###########逐样本均值消减##############
+    # #########################
     # xm = np.mean(gx)
     # gx = gx - xm
     # Ym = np.mean(fx)
     # fx = fx - Ym
     #####################################
-    ############################################################################
+    #################################Data Augmentation###########################################
     # gx = np.transpose(gx)
     # fx = np.transpose(fx)
     # fx.tofile(filepath4 + str(data_IDs_temp[0]) + '.dat')
