@@ -9,3 +9,7 @@ trainmultiple.py is the network training code
 
 applymultiple.py is the data application code.
 
+testing:
+
+python trainmultiple.py
+python applymultiple.py
