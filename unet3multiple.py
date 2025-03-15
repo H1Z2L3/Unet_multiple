@@ -63,16 +63,16 @@ def unet(pretrained_weights = None,input_size = (None,None,1)):
     conv9 = Conv2D(32, (3,3), activation='relu', padding='same')(conv9)
     # conv9 = Conv2D(32, (3, 3), activation='tanh', padding='same')(conv9)
 
-    conv10 = Conv2D(1, (1, 1))(conv9)#回归问题一般不设置激活函数
+    conv10 = Conv2D(1, (1, 1))(conv9)#
     # conv10 = Conv2D(1, (1, 1),activation='tanh')(conv9)
 
 
 
-    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 二分类任务选用sigmoid作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #多分类任务选用softmax作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#基于输出值为正的回归任务可采用relu作为激活函数
+    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 
+    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #
+    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#
     # conv8 = Conv2D(1, (1, 1), activation='tanh')(conv7)
-    # conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    # conv8 = Conv2D(1, (1, 1))(conv7)#
 
     model = Model(inputs=[inputs], outputs=[conv10])
     model.summary()
@@ -183,16 +183,16 @@ def unet1(pretrained_weights = None,input_size = (None,None,1)):
     conv9 = BatchNormalization()(conv9)
     conv9 = LeakyReLU(alpha=0.2)(conv9)
 
-    # conv10 = Conv2D(1, (1, 1))(conv9)#回归问题一般不设置激活函数
+    # conv10 = Conv2D(1, (1, 1))(conv9)
     conv10 = Conv2D(1, (1, 1),activation='tanh')(conv9)
 
 
 
-    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 二分类任务选用sigmoid作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #多分类任务选用softmax作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#基于输出值为正的回归任务可采用relu作为激活函数
+    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)
+    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) 
+    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)
     # conv8 = Conv2D(1, (1, 1), activation='tanh')(conv7)
-    # conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    # conv8 = Conv2D(1, (1, 1))(conv7)
 
     model = Model(inputs=[inputs], outputs=[conv10])
     model.summary()
@@ -250,16 +250,16 @@ def unet2(pretrained_weights = None,input_size = (None,None,1)):
     conv9 = Conv2D(32, (3,3), activation='relu', padding='same')(conv9)
     # conv9 = Conv2D(32, (3, 3), activation='tanh', padding='same')(conv9)
 
-    conv10 = Conv2D(1, (1, 1))(conv9)#回归问题一般不设置激活函数
+    conv10 = Conv2D(1, (1, 1))(conv9)
     # conv10 = Conv2D(1, (1, 1),activation='tanh')(conv9)
 
 
 
-    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 二分类任务选用sigmoid作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #多分类任务选用softmax作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#基于输出值为正的回归任务可采用relu作为激活函数
+    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)
+    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) 
+    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)
     # conv8 = Conv2D(1, (1, 1), activation='tanh')(conv7)
-    # conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    # conv8 = Conv2D(1, (1, 1))(conv7)
 
     model = Model(inputs=[inputs], outputs=[conv10])
     model.summary()
@@ -377,16 +377,16 @@ def unet3(pretrained_weights = None,input_size = (None,None,1)):
     # conv9 = BatchNormalization()(conv9)
     # conv9 = LeakyReLU(alpha=0.2)(conv9)
 
-    conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    conv8 = Conv2D(1, (1, 1))(conv7)
     # conv8 = Conv2D(1, (1, 1),activation='tanh')(conv7)
 
 
 
-    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 二分类任务选用sigmoid作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #多分类任务选用softmax作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#基于输出值为正的回归任务可采用relu作为激活函数
+    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)
+    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) 
+    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)
     # conv8 = Conv2D(1, (1, 1), activation='tanh')(conv7)
-    # conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    # conv8 = Conv2D(1, (1, 1))(conv7)
 
     model = Model(inputs=[inputs], outputs=[conv8])
     model.summary()
@@ -480,16 +480,16 @@ def unet4(pretrained_weights = None,input_size = (None,None,1)):
     # conv9 = Conv2D(64, (3,3), activation='relu', padding='same')(conv9)
     # conv9 = Conv2D(32, (3, 3), activation='tanh', padding='same')(conv9)
 
-    conv10 = Conv2D(1, (1, 1))(conv9)#回归问题一般不设置激活函数
+    conv10 = Conv2D(1, (1, 1))(conv9)
     # conv10 = Conv2D(1, (1, 1),activation='tanh')(conv9)
 
 
 
-    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)# 二分类任务选用sigmoid作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7) #多分类任务选用softmax作为激活函数
-    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)#基于输出值为正的回归任务可采用relu作为激活函数
+    # conv8 = Conv2D(1, (1,1), activation='sigmoid')(conv7)
+    # conv8 = Conv2D(1, (1, 1), activation='softmax')(conv7)
+    # conv8 = Conv2D(1, (1, 1), activation='relu')(conv7)
     # conv8 = Conv2D(1, (1, 1), activation='tanh')(conv7)
-    # conv8 = Conv2D(1, (1, 1))(conv7)#回归问题一般不设置激活函数
+    # conv8 = Conv2D(1, (1, 1))(conv7)
 
     model = Model(inputs=[inputs], outputs=[conv10])
     model.summary()
